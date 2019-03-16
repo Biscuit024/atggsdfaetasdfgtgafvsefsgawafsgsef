@@ -86,7 +86,7 @@ if leng == 1 then
 			goto LENG
 		end
 		if menu == 3 then 
-			load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/TOS_Auto.lua").content)()
+			load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/checkupdate.lua").content)()
 		end
 end
 if leng == 2 then
@@ -103,7 +103,7 @@ if leng == 2 then
 			goto LENG
 		end
 		if menu == 3 then 
-			load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/TOS_Auto.lua").content)()
+			load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/checkupdate.lua").content)()
 		end
 end
 
