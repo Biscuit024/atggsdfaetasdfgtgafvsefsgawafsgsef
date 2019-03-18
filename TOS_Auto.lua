@@ -144,11 +144,11 @@ gg.searchNumber(x1, gg.TYPE_DWORD)
 			print('※High atk and regen [Fail to modified]※')
 		end
 	else
-		r = gg.getResults(1,2)
+		local r = gg.getResults(1,2)
 		address1 = (r[1].address -8)
 		gg.clearResults()
 		gg.searchAddress(string.format("%X", address1), 0xFFFFFFFF,gg.TYPE_QWORD)
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll('3026419015128981534', gg.TYPE_QWORD)
 		if leng == 1 then
 			print('※無限攻擊回復 [修改成功]※')
@@ -196,26 +196,26 @@ gg.searchNumber(x3, gg.TYPE_DWORD)
 			print('※Allatk [Fail to modified]※')
 		end
 	else
-		r = gg.getResults(1,12)
+		local r = gg.getResults(1,12)
 		address1 = (r[1].address -6)
 		address2 = (r[1].address -4)
 		address3 = (r[1].address -2)
 		address4 = (r[1].address)
 		gg.clearResults()
 		gg.searchAddress(string.format("%X", address1), 0xFFFFFFFF,gg.TYPE_WORD)
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll('5918', gg.TYPE_WORD)
 		gg.clearResults()
 		gg.searchAddress(string.format("%X", address2), 0xFFFFFFFF,gg.TYPE_WORD)
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll('0', gg.TYPE_WORD)
 		gg.clearResults()
 		gg.searchAddress(string.format("%X", address3), 0xFFFFFFFF,gg.TYPE_WORD)
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll('0', gg.TYPE_WORD)
 		gg.clearResults()
 		gg.searchAddress(string.format("%X", address4), 0xFFFFFFFF,gg.TYPE_WORD)
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll('10752', gg.TYPE_WORD)
 		gg.clearResults()
 		if leng == 1 then
@@ -254,7 +254,7 @@ gg.searchNumber(x4, gg.TYPE_DWORD)
 			print('※Combo% [Fail to modified]※')
 		end
 	else
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		if leng == 1 then
 			print('※Combo% [修改成功]※')
@@ -280,16 +280,16 @@ gg.searchNumber(x5, gg.TYPE_DWORD)
 			print('※CD１ [Fail to modified]※')
 		end
 	else
-		r = gg.getResults(1,3)
+		local r = gg.getResults(1,3)
 		address1 = (r[1].address +2)
 		address2 = (r[1].address +3)
 		gg.clearResults()
 		gg.searchAddress(string.format("%X", address1), 0xFFFFFFFF,gg.TYPE_BYTE)
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll('22', gg.TYPE_BYTE)
 		gg.clearResults()
 		gg.searchAddress(string.format("%X", address2), 0xFFFFFFFF,gg.TYPE_BYTE)
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll('90', gg.TYPE_BYTE)
 		gg.clearResults()
 		if leng == 1 then
@@ -317,28 +317,28 @@ if leng == 2 then
 	p2=('※Combo% [Fail to restore]※')
 end
 	if gg.getResultCount()~=0 then 
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
 		print(p1)
 	else
 		gg.searchNumber(c100, gg.TYPE_DWORD)
 	if gg.getResultCount()~=0 then 
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
 		print(p1)
 	else
 		gg.searchNumber(c200, gg.TYPE_DWORD)
 	if gg.getResultCount()~=0 then 
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
 		print(p1)
 	else
 		gg.searchNumber(c400, gg.TYPE_DWORD)
 	if gg.getResultCount()~=0 then
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
 		print(p1)
@@ -347,7 +347,7 @@ end
 	if gg.getResultCount()==0 then 
 		print(p2)
 	else
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
 		print(p1)
@@ -370,16 +370,16 @@ gg.searchNumber(cdr, gg.TYPE_DWORD)
 			print('※CD１ [Fail to restore]※')
 		end
 	else
-		r = gg.getResults(1,3)
+		local r = gg.getResults(1,3)
 		address1 = (r[1].address +2)
 		address2 = (r[1].address +3)
 		gg.clearResults()
 		gg.searchAddress(string.format("%X", address1), 0xFFFFFFFF,gg.TYPE_BYTE)
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll('23', gg.TYPE_BYTE)
 		gg.clearResults()
 		gg.searchAddress(string.format("%X", address2), 0xFFFFFFFF,gg.TYPE_BYTE)
-		r = gg.getResults(1)
+		local r = gg.getResults(1)
 		gg.editAll('89', gg.TYPE_BYTE)
 		gg.clearResults()
 		if leng == 1 then
