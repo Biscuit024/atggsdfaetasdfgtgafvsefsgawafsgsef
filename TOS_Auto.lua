@@ -26,7 +26,7 @@ local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇�
 
 ::smenu::
 if menu == 1 then 
-	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※腳本版本:TOS_Auto_v1.3 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
+	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※腳本版本:TOS_Auto_v1.3.1 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
 		if not zhm then
 			print("※感謝使用※")
 			leng = 1
@@ -48,7 +48,7 @@ if menu == 1 then
 		end
 end
 if menu == 2 then 
-	enm = gg.alert('※※※TOS Script※※※ \n\n※Script writer:Biscuit※ \n\n※Script version:TOS_Auto_v1.3 \n\n※APK&PLAY are supported※ \n\n※Traditional Chinese version and english version are supported※ \n\n※For geting the future update imformation, please go to apk.tw※ \n\n※This script are supported for TOS in future update, but please contact me if the script was disabled※ \n\n※LINE ID:harukibb※','※Next※','※Leave※','※Setting※')
+	enm = gg.alert('※※※TOS Script※※※ \n\n※Script writer:Biscuit※ \n\n※Script version:TOS_Auto_v1.3.1 \n\n※APK&PLAY are supported※ \n\n※Traditional Chinese version and english version are supported※ \n\n※For geting the future update imformation, please go to apk.tw※ \n\n※This script are supported for TOS in future update, but please contact me if the script was disabled※ \n\n※LINE ID:harukibb※','※Next※','※Leave※','※Setting※')
 		if not enm then
 			print("※Thank for using※")
 			leng = 2
@@ -137,7 +137,12 @@ function highatk ()
 gg.setVisible(false) 
 gg.searchNumber(x1, gg.TYPE_DWORD)
 	if gg.getResultCount()==0 then
-		print('※無限攻擊回復 [尋找數據失敗]※   ※High atk and regen [Fail to modified]※')
+		if leng == 1 then
+			print('※無限攻擊回復 [尋找數據失敗]※')
+		end
+		if leng == 2 then
+			print('※High atk and regen [Fail to modified]※')
+		end
 	else
 		r = gg.getResults(1,2)
 		address1 = (r[1].address -8)
@@ -145,7 +150,12 @@ gg.searchNumber(x1, gg.TYPE_DWORD)
 		gg.searchAddress(string.format("%X", address1), 0xFFFFFFFF,gg.TYPE_QWORD)
 		r = gg.getResults(1)
 		gg.editAll('3026419015128981534', gg.TYPE_QWORD)
-		print("※無限攻擊回復 [修改成功※   ※High atk and regen Successfully modified※")
+		if leng == 1 then
+			print('※無限攻擊回復 [修改成功]※')
+		end
+		if leng == 2 then
+			print('※High atk and regen Successfully modified※')
+		end
 	end
 gg.clearResults()
 Extra()
@@ -155,12 +165,22 @@ function miss ()
 gg.setVisible(false) 
 gg.searchNumber(x2, gg.TYPE_DWORD)
 	if gg.getResultCount()==0 then
-		print('※迴避敵人攻擊 [尋找數據失敗]※   ※MISS [Fail to modified]※')
+		if leng == 1 then
+			print('※迴避敵人攻擊 [尋找數據失敗]※')
+		end
+		if leng == 2 then
+			print('※MISS [Fail to modified]※')
+		end
 	else
 		local result = gg.getResults(2) 
 		result[2].value=369098750
 		gg.setValues(result)
-		print("※迴避敵人攻擊 [修改成功]※   ※MISS [Successfully modified]※")
+		if leng == 1 then
+			print('※迴避敵人攻擊 [修改成功]※')
+		end
+		if leng == 2 then
+			print('※MISS [Successfully modified]※')
+		end
 	end
 gg.clearResults()
 end
@@ -169,7 +189,12 @@ function allatk ()
 gg.setVisible(false) 
 gg.searchNumber(x3, gg.TYPE_DWORD)
 	if gg.getResultCount()==0 then
-		print('※全體攻擊 [尋找數據失敗]※   ※Allatk [Fail to modified]※')
+		if leng == 1 then
+			print('※全體攻擊 [尋找數據失敗]※')
+		end
+		if leng == 2 then
+			print('※Allatk [Fail to modified]※')
+		end
 	else
 		r = gg.getResults(1,12)
 		address1 = (r[1].address -6)
@@ -193,7 +218,12 @@ gg.searchNumber(x3, gg.TYPE_DWORD)
 		r = gg.getResults(1)
 		gg.editAll('10752', gg.TYPE_WORD)
 		gg.clearResults()
-		print("※全體攻擊 [修改成功]※   ※Allatk [Successfully modified]※")
+		if leng == 1 then
+			print('※全體攻擊 [修改成功]※')
+		end
+		if leng == 2 then
+			print('※Allatk [Successfully modified]※')
+		end
 	end
 gg.clearResults()
 end
@@ -217,12 +247,23 @@ gg.setVisible(false)
 	end
 gg.searchNumber(x4, gg.TYPE_DWORD)
 	if gg.getResultCount()==0 then
-		print("※Combo% [尋找數據失敗]※   ※Combo% [Fail to modified]※")
+		if leng == 1 then
+			print('※Combo% [尋找數據失敗]※')
+		end
+		if leng == 2 then
+			print('※Combo% [Fail to modified]※')
+		end
 	else
 		r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
-		print('※Combo% [修改成功]※   ※Combo% [Successfully modified]※')
-		gg.alert('為減少使用者在使用Combo%修改下被封帳，請在[首次進入關卡後]而且在[轉珠前]，重啟腳本點選[數據改回功能]再按[①Combo數據改回]。')
+		if leng == 1 then
+			print('※Combo% [修改成功]※')
+			gg.alert('為減少使用者在使用Combo%修改下被封帳，請在[首次進入關卡後]而且在[轉珠前]，重啟腳本點選[②數據改回功能]再按[①Combo數據改回]。')
+		end
+		if leng == 2 then
+			print('※Combo% [Successfully modified]※')
+			gg.alert("In order to reduce the ban rate when using Combo% hacking，Please restart the script and use [Combo% restore] in the [②Data restore function] when [after entering the level] and [before moving the puzzle].")
+		end
 	end
 gg.clearResults()
 Extra()
@@ -232,7 +273,12 @@ function cd1 ()
 gg.setVisible(false) 
 gg.searchNumber(x5, gg.TYPE_DWORD)
 	if gg.getResultCount()==0 then
-		print('※CD１ [尋找數據失敗]※   ※CD１ [Fail to modified]※')
+		if leng == 1 then
+			print('※CD１ [尋找數據失敗]※')
+		end
+		if leng == 2 then
+			print('※CD１ [Fail to modified]※')
+		end
 	else
 		r = gg.getResults(1,3)
 		address1 = (r[1].address +2)
@@ -246,8 +292,14 @@ gg.searchNumber(x5, gg.TYPE_DWORD)
 		r = gg.getResults(1)
 		gg.editAll('90', gg.TYPE_BYTE)
 		gg.clearResults()
-		print("※CD１ [修改成功]※   ※※")
-		gg.alert('為減少使用者在使用CD１修改下被封帳，請在[首次進入關卡後]而且在[轉珠後]，重啟腳本點選[數據改回功能]再按[②CD１數據改回]。')
+		if leng == 1 then
+			print('※CD１ [修改成功]※')
+			gg.alert('為減少使用者在使用Combo%修改下被封帳，請在[首次進入關卡後]而且在[轉珠後]，重啟腳本點選[②數據改回功能]再按[②CD１數據改回]。')
+		end
+		if leng == 2 then
+			print('※CD１ [Successfully modified]※')
+			gg.alert("In order to reduce the ban rate when using CD１ hacking，Please restart the script and use [②CD１ restore] in the [②Data restore function] when [after entering the level] and [after moving the puzzle].")
+		end
 	end
 gg.clearResults()
 end
@@ -256,41 +308,49 @@ function comboreset ()
 gg.setVisible(false) 
 com=1048576000
 gg.searchNumber(c50, gg.TYPE_DWORD)
+if leng == 1 then
+	p1=('※Combo% [數據改回成功]※')
+	p2=('※Combo% [數據改回失敗]※')
+end
+if leng == 2 then
+	p1=('※Combo% [Successfully restored]※')
+	p2=('※Combo% [Fail to restore]※')
+end
 	if gg.getResultCount()~=0 then 
 		r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
-		print("※Combo% [數據改回成功]※   ※Combo% [Successfully restored]※")
+		print(p1)
 	else
 		gg.searchNumber(c100, gg.TYPE_DWORD)
 	if gg.getResultCount()~=0 then 
 		r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
-		print("※Combo% [數據改回成功]※   ※Combo% [Successfully restored]※")
+		print(p1)
 	else
 		gg.searchNumber(c200, gg.TYPE_DWORD)
 	if gg.getResultCount()~=0 then 
 		r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
-		print("※Combo% [數據改回成功]※   ※Combo% [Successfully restored]※")
+		print(p1)
 	else
 		gg.searchNumber(c400, gg.TYPE_DWORD)
 	if gg.getResultCount()~=0 then
 		r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
-		print("※Combo% [數據改回成功]※   ※Combo% [Successfully restored]※")
+		print(p1)
 	else
 		gg.searchNumber(c500, gg.TYPE_DWORD)
 	if gg.getResultCount()==0 then 
-		print("※Combo% [數據改回失去]※   ※Combo% [Fail to restore]※")
+		print(p2)
 	else
 		r = gg.getResults(1)
 		gg.editAll(com, gg.TYPE_DWORD)
 		gg.clearResults()
-		print("※Combo [數據改回成功]※   ※Combo% [Successfully restored]※")
+		print(p1)
 	end
 	end
 	end
@@ -303,7 +363,12 @@ function cd1reset ()
 gg.setVisible(false) 
 gg.searchNumber(cdr, gg.TYPE_DWORD)
 	if gg.getResultCount()==0 then
-		print("※CD１ [數據改回失敗]※   ※CD１ [Fail to restore]※")
+		if leng == 1 then
+			print('※CD１ [數據改回失敗]※')
+		end
+		if leng == 2 then
+			print('※CD１ [Fail to restore]※')
+		end
 	else
 		r = gg.getResults(1,3)
 		address1 = (r[1].address +2)
@@ -317,17 +382,70 @@ gg.searchNumber(cdr, gg.TYPE_DWORD)
 		r = gg.getResults(1)
 		gg.editAll('89', gg.TYPE_BYTE)
 		gg.clearResults()
-		print("※CD１ [數據改回成功]※   ※CD１ [Successfully restored]※")
+		if leng == 1 then
+			print('※CD１ [數據改回成功]※')
+		end
+		if leng == 2 then
+			print('※CD１ [Successfully restored]※')
+		end
 	end
 gg.clearResults()
 end
 
 function main ()
 if leng == 1 then
-	local funcTable= gg.choice({'①高攻回','②Combo','③只使用其他功能'}, nil, '選擇主要功能')
+	local funcTable= gg.choice({'①修改功能','②數據改回功能'}, nil, '選擇主要功能')
 		if not funcTable then
 			print("感謝使用")
 			return
+		end
+	gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
+		if funcTable == 1 then
+			leng = 1
+			toshacking()
+		end
+		if funcTable == 2 then
+			leng = 1
+			tosreset()
+		end
+	end
+if leng == 2 then
+	local funcTable= gg.choice({'①Hacking function','③Data restore function'}, nil, 'Main function')
+		if not funcTable then
+			print("Thanks for using")
+			return
+		end
+	gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
+		if funcTable == 1 then
+			leng = 2
+			toshacking()
+		end
+		if funcTable == 2 then
+			leng = 2
+			tosreset()
+		end
+	end
+end
+
+function toshacking ()
+if leng == 1 then
+	local funcTable= gg.choice({'①高攻回','②Combo','③只使用其他功能'}, nil, '選擇修改功能')
+		if not funcTable then
+			gg.toast("已取消使用修改功能")
+			local leave= gg.choice({'返回主要功能','離開腳本'})
+			gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
+				if not leave then
+					leng = 1
+					Comboch()
+				end
+				if leave == 1 then
+					leng = 1
+					main()
+				end
+				if leave == 2 then
+					print("感謝使用")
+					return
+				end
 		end
 	gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
 		if funcTable == 1 then
@@ -343,10 +461,23 @@ if leng == 1 then
 		end
 	end
 if leng == 2 then
-	local funcTable= gg.choice({'①Highatk','②Combo','③Extra function'}, nil, 'Main function')
+	local funcTable= gg.choice({'①Highatk','②Combo','③Extra function'}, nil, 'Hacking function choice')
 		if not funcTable then
-			print("Thanks for using")
-			return
+			gg.toast("Hacking function canceled")
+			local leave= gg.choice({'Back to Main function','Leave'})
+			gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
+				if not leave then
+					leng = 2
+					toshacking()
+				end
+				if leave == 1 then
+					leng = 2
+					main()
+				end
+				if leave == 2 then
+					print("Thanks for using")
+					return
+				end
 		end
 	gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
 		if funcTable == 1 then
@@ -489,10 +620,6 @@ if leng == 1 then
 		if funcTable[3] then
 			cd1()
 		end
-		if funcTable[4] then
-			leng = 1
-			tosreset()
-		end
 	end
 if leng == 2 then
 	local funcTable= gg.multiChoice({'①MISS','②Allatk','③CD１','④Data restore'}, {}, 'Extra function choices')
@@ -523,10 +650,6 @@ if leng == 2 then
 		end
 		if funcTable[3] then
 			cd1()
-		end
-		if funcTable[4] then
-			leng = 2
-			tosreset()
 		end
 	end
 end
