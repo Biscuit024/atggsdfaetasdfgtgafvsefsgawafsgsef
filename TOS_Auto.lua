@@ -86,6 +86,7 @@ if leng == 1 then
 			goto LENG
 		end
 		if menu == 3 then 
+			leng = 1
 			load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/checkupdate.lua").content)()
 		end
 end
@@ -103,6 +104,7 @@ if leng == 2 then
 			goto LENG
 		end
 		if menu == 3 then 
+			leng = 2
 			load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/checkupdate.lua").content)()
 		end
 end
