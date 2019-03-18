@@ -591,7 +591,7 @@ end
 
 function Extra ()
 if leng == 1 then
-	local funcTable= gg.multiChoice({'①MISS','②全體攻擊','③CD１','④數據改回功能'}, {}, '選擇額外功能')
+	local funcTable= gg.multiChoice({'①MISS','②全體攻擊','③CD１'}, {}, '選擇額外功能')
 		if not funcTable then
 			gg.toast("已取消使用額外功能")
 			local leave= gg.choice({'返回主要功能','離開腳本'})
@@ -622,7 +622,7 @@ if leng == 1 then
 		end
 	end
 if leng == 2 then
-	local funcTable= gg.multiChoice({'①MISS','②Allatk','③CD１','④Data restore'}, {}, 'Extra function choices')
+	local funcTable= gg.multiChoice({'①MISS','②Allatk','③CD１'}, {}, 'Extra function choices')
 		if not funcTable then
 			gg.toast("Extra function canceled")
 			local leave= gg.choice({'Back to Main function','Leave'})
