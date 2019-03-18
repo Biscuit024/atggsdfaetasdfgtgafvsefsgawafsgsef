@@ -154,7 +154,7 @@ gg.searchNumber(x1, gg.TYPE_DWORD)
 			print('※無限攻擊回復 [修改成功]※')
 		end
 		if leng == 2 then
-			print('※High atk and regen Successfully modified※')
+			print('※High atk and regen [Successfully modified]※')
 		end
 	end
 gg.clearResults()
