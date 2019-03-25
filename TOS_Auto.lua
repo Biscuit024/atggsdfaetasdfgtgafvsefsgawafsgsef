@@ -26,7 +26,7 @@ local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇�
 
 ::smenu::
 if menu == 1 then 
-	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※腳本版本:TOS_Auto_v1.3.1 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
+	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※腳本版本:TOS_Auto_v1.3.2 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
 		if not zhm then
 			print("※感謝使用※")
 			leng = 1
@@ -392,6 +392,23 @@ gg.searchNumber(cdr, gg.TYPE_DWORD)
 gg.clearResults()
 end
 
+function functionerror ()
+	if leng == 1 then
+		if fun == 1 then
+		end
+		if fun == 2 then
+			gg.alert("MISS 功能目前無法使用")
+		end
+	end
+	if leng == 2 then
+		if fun == 1 then
+		end
+		if fun == 2 then
+			gg.alert("MISS Function is disabled")
+		end
+	end
+end
+
 function main ()
 if leng == 1 then
 	local funcTable= gg.choice({'①修改功能','②數據改回功能'}, nil, '選擇主要功能')
@@ -612,7 +629,8 @@ if leng == 1 then
 		end
 		gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
 		if funcTable[1] then
-			miss()
+			fun = 2
+			functionerror()
 		end
 		if funcTable[2] then
 			allatk()
@@ -643,7 +661,8 @@ if leng == 2 then
 		end
 		gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
 		if funcTable[1] then
-			miss()
+			fun = 2
+			functionerror()
 		end
 		if funcTable[2] then
 			allatk()
