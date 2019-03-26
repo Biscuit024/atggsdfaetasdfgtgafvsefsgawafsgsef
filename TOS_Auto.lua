@@ -127,6 +127,7 @@ x3='2A00000013300300r;1330030080010000r'
 x4='1048576000;2229760;1866366976'
 x5='321192960;321194244;285479173;1494681088'
 cdr='321192960;321194244;285479173;1511392768'
+missr='0A2A462200002041r;0000000000000000r;0000002A32027B3Er'
 c50='1056964608;2229760;1866366976'
 c100='1065353216;2229760;1866366976'
 c200='1073747000;2229760;1866366976'
@@ -200,9 +201,11 @@ gg.searchNumber(x2, gg.TYPE_QWORD)
         end
 		if leng == 1 then
 			print('※迴避敵人攻擊 [修改成功]※')
+			gg.alert('為減少使用者在使用MISS修改下被封帳，請在[首次進入關卡後]而且在[首次敵人攻擊後]，重啟腳本點選[②數據改回功能]再按[①Combo數據改回]。')
 		end
 		if leng == 2 then
 			print('※MISS [Successfully modified]※')
+			gg.alert("In order to reduce the ban rate when using MISS hacking，Please restart the script and use [③MISS restore] in the [②Data restore function] when [after entering the level] and [after the monster attacked you].")
 		end
 	end
 gg.clearResults()
@@ -280,7 +283,7 @@ gg.searchNumber(x4, gg.TYPE_DWORD)
 		end
 		if leng == 2 then
 			print('※Combo% [Successfully modified]※')
-			gg.alert("In order to reduce the ban rate when using Combo% hacking，Please restart the script and use [Combo% restore] in the [②Data restore function] when [after entering the level] and [before moving the puzzle].")
+			gg.alert("In order to reduce the ban rate when using Combo% hacking，Please restart the script and use [①Combo% restore] in the [②Data restore function] when [after entering the level] and [before moving the puzzle].")
 		end
 	end
 gg.clearResults()
@@ -405,6 +408,44 @@ gg.searchNumber(cdr, gg.TYPE_DWORD)
 		end
 		if leng == 2 then
 			print('※CD１ [Successfully restored]※')
+		end
+	end
+gg.clearResults()
+end
+
+function missreset ()
+gg.setVisible(false) 
+gg.searchNumber(missr, gg.TYPE_QWORD)
+	if gg.getResultCount()==0 then
+		if leng == 1 then
+			print('※MISS [數據改回失敗]※')
+		end
+		if leng == 2 then
+			print('※MISS [Fail to restore]※')
+		end
+	else
+		local r = gg.getResults(1)
+		gg.clearResults()
+		local val = {
+			  "0A2A46027B3D7900r",
+			  "046F5C07000A28E9r",
+			  "0100062A32027B3Er"
+				}
+		local num = 3
+		for _FORLP_ = 1, num do
+			gg.setValues({
+			  {
+				address = r[1].address + (_FORLP_ - 1) * 8,
+				value = val[_FORLP_],
+				flags = r[1].flags
+			  }
+			})
+        end
+		if leng == 1 then
+			print('※MISS [數據改回成功]※')
+		end
+		if leng == 2 then
+			print('※MISS [Successfully restored]※')
 		end
 	end
 gg.clearResults()
@@ -693,7 +734,7 @@ end
 
 function tosreset ()
 if leng == 1 then
-		local funcTable= gg.multiChoice({'①Combo數據改回','②CD１數據改回'}, {}, '選擇數據改回功能')
+		local funcTable= gg.multiChoice({'①Combo數據改回','②CD１數據改回','③MISS數據改回'}, {}, '選擇數據改回功能')
 		if not funcTable then
 			gg.toast("取消使用數據改回功能")
 			local leave= gg.choice({'返回主要功能','離開腳本'})
@@ -721,9 +762,13 @@ if leng == 1 then
 			cd1reset()
 			return
 		end
+		if funcTable[3] then
+			missreset()
+			return
+		end
 	end
 if leng == 2 then
-		local funcTable= gg.multiChoice({'①Combo% restore','②CD１ restore'}, {}, 'Data restore choices')
+		local funcTable= gg.multiChoice({'①Combo% restore','②CD１ restore','③MISS restore'}, {}, 'Data restore choices')
 		if not funcTable then
 			gg.toast("Data restore canceled")
 			local leave= gg.choice({'Back to Main function','Leave'})
@@ -749,6 +794,10 @@ if leng == 2 then
 		end
 		if funcTable[2] then
 			cd1reset()
+			return
+		end
+		if funcTable[3] then
+			missreset()
 			return
 		end
 	end
