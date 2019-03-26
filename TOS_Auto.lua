@@ -26,7 +26,7 @@ local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇�
 
 ::smenu::
 if menu == 1 then 
-	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※腳本版本:TOS_Auto_v1.3.2 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
+	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※腳本版本:TOS_Auto_v1.3.3 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
 		if not zhm then
 			print("※感謝使用※")
 			leng = 1
@@ -121,9 +121,9 @@ end
 
 ::STARE::
 gg.clearResults()
-x1='573179392;1862468130;1862409770'
-x2='2229248;369098752:11'
-x3='35531270;35793414;506070528;573179392'
+x1='0617FE012A520203r'
+x2='0A2A46027B3D7900r'
+x3='2A00000013300300r;1330030080010000r'
 x4='1048576000;2229760;1866366976'
 x5='321192960;321194244;285479173;1494681088'
 cdr='321192960;321194244;285479173;1511392768'
@@ -135,7 +135,7 @@ c500='1084229375;2229760;1866366976'
 
 function highatk ()
 gg.setVisible(false) 
-gg.searchNumber(x1, gg.TYPE_DWORD)
+gg.searchNumber(x1, gg.TYPE_QWORD)
 	if gg.getResultCount()==0 then
 		if leng == 1 then
 			print('※無限攻擊回復 [尋找數據失敗]※')
@@ -144,17 +144,26 @@ gg.searchNumber(x1, gg.TYPE_DWORD)
 			print('※High atk and regen [Fail to modified]※')
 		end
 	else
-		local r = gg.getResults(1,2)
-		local address1 = (r[1].address -8)
-		gg.clearResults()
-		gg.searchAddress(string.format("%X", address1), 0xFFFFFFFF,gg.TYPE_QWORD)
 		local r = gg.getResults(1)
-		gg.editAll('3026419015128981534', gg.TYPE_QWORD)
+		local val = {
+			  "1E2040420F00002Ar"
+				}
+		local num = 1
+		local offset = -40
+		for _FORLP_ = 1, num do
+			gg.setValues({
+			  {
+				address = r[1].address + offset + (_FORLP_ - 1) * 8,
+				value = val[_FORLP_],
+			    flags = r[1].flags
+			  }
+			})
+        end
 		if leng == 1 then
 			print('※無限攻擊回復 [修改成功]※')
 		end
 		if leng == 2 then
-			print('※High atk and regen [Successfully modified]※')
+			print('※High atk and regen Successfully modified※')
 		end
 	end
 gg.clearResults()
@@ -162,8 +171,8 @@ Extra()
 end
 
 function miss ()
-gg.setVisible(false) 
-gg.searchNumber(x2, gg.TYPE_DWORD)
+gg.setVisible(false)
+gg.searchNumber(x2, gg.TYPE_QWORD)
 	if gg.getResultCount()==0 then
 		if leng == 1 then
 			print('※迴避敵人攻擊 [尋找數據失敗]※')
@@ -172,9 +181,23 @@ gg.searchNumber(x2, gg.TYPE_DWORD)
 			print('※MISS [Fail to modified]※')
 		end
 	else
-		local result = gg.getResults(2) 
-		result[2].value=369098750
-		gg.setValues(result)
+		local r = gg.getResults(1)
+		gg.clearResults()
+		local val = {
+			  "0A2A462200002041r",
+			  "0000000000000000r",
+			  "0000002A32027B3Er"
+				}
+		local num = 3
+		for _FORLP_ = 1, num do
+			gg.setValues({
+			  {
+				address = r[1].address + (_FORLP_ - 1) * 8,
+				value = val[_FORLP_],
+				flags = r[1].flags
+			  }
+			})
+        end
 		if leng == 1 then
 			print('※迴避敵人攻擊 [修改成功]※')
 		end
@@ -186,8 +209,8 @@ gg.clearResults()
 end
 
 function allatk ()
-gg.setVisible(false) 
-gg.searchNumber(x3, gg.TYPE_DWORD)
+gg.setVisible(false)
+gg.searchNumber(x3, gg.TYPE_QWORD)
 	if gg.getResultCount()==0 then
 		if leng == 1 then
 			print('※全體攻擊 [尋找數據失敗]※')
@@ -196,28 +219,23 @@ gg.searchNumber(x3, gg.TYPE_DWORD)
 			print('※Allatk [Fail to modified]※')
 		end
 	else
-		local r = gg.getResults(1,12)
-		local address1 = (r[1].address -6)
-		local address2 = (r[1].address -4)
-		local address3 = (r[1].address -2)
-		local address4 = (r[1].address)
-		gg.clearResults()
-		gg.searchAddress(string.format("%X", address1), 0xFFFFFFFF,gg.TYPE_WORD)
 		local r = gg.getResults(1)
-		gg.editAll('5918', gg.TYPE_WORD)
 		gg.clearResults()
-		gg.searchAddress(string.format("%X", address2), 0xFFFFFFFF,gg.TYPE_WORD)
-		local r = gg.getResults(1)
-		gg.editAll('0', gg.TYPE_WORD)
-		gg.clearResults()
-		gg.searchAddress(string.format("%X", address3), 0xFFFFFFFF,gg.TYPE_WORD)
-		local r = gg.getResults(1)
-		gg.editAll('0', gg.TYPE_WORD)
-		gg.clearResults()
-		gg.searchAddress(string.format("%X", address4), 0xFFFFFFFF,gg.TYPE_WORD)
-		local r = gg.getResults(1)
-		gg.editAll('10752', gg.TYPE_WORD)
-		gg.clearResults()
+		local val = {
+			  "062A1E1700000000r",
+			  "00000000002A2202r"
+				}
+		local num = 2
+		local offset = -52
+		for _FORLP_ = 1, num do
+			gg.setValues({
+			  {
+				address = r[1].address + offset + (_FORLP_ - 1) * 4,
+				value = val[_FORLP_],
+				flags = r[1].flags
+			  }
+			})
+        end
 		if leng == 1 then
 			print('※全體攻擊 [修改成功]※')
 		end
@@ -395,6 +413,7 @@ end
 function functionerror ()
 	if leng == 1 then
 		if fun == 1 then
+			gg.alert("高攻回 功能目前無法使用")
 		end
 		if fun == 2 then
 			gg.alert("MISS 功能目前無法使用")
@@ -402,6 +421,7 @@ function functionerror ()
 	end
 	if leng == 2 then
 		if fun == 1 then
+			gg.alert("Highatk Function is disabled")
 		end
 		if fun == 2 then
 			gg.alert("MISS Function is disabled")
@@ -629,8 +649,7 @@ if leng == 1 then
 		end
 		gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
 		if funcTable[1] then
-			fun = 2
-			functionerror()
+			miss()
 		end
 		if funcTable[2] then
 			allatk()
@@ -661,8 +680,7 @@ if leng == 2 then
 		end
 		gg.setRanges(bit32.bxor(gg.REGION_C_ALLOC,gg.REGION_ANONYMOUS))
 		if funcTable[1] then
-			fun = 2
-			functionerror()
+			miss()
 		end
 		if funcTable[2] then
 			allatk()
