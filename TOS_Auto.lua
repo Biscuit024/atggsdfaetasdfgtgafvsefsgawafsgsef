@@ -201,7 +201,7 @@ gg.searchNumber(x2, gg.TYPE_QWORD)
         end
 		if leng == 1 then
 			print('※迴避敵人攻擊 [修改成功]※')
-			gg.alert('為減少使用者在使用MISS修改下被封帳，請在[首次進入關卡後]而且在[首次敵人攻擊後]，重啟腳本點選[②數據改回功能]再按[①Combo數據改回]。')
+			gg.alert('為減少使用者在使用MISS修改下被封帳，請在[首次進入關卡後]而且在[首次敵人攻擊後]，重啟腳本點選[②數據改回功能]再按[③MISS數據改回]。')
 		end
 		if leng == 2 then
 			print('※MISS [Successfully modified]※')
