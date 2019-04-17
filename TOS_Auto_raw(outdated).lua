@@ -1,1 +1,1 @@
-﻿gg.alert('※此加載器已過期，請更新至TOS_Auto_Loader_v3.0※')
+﻿loaderver=2.0
