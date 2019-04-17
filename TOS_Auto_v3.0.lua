@@ -3,15 +3,18 @@ gg.toast("Loading...")
 
 if gg.BUILD < vgg then erronum=1 goto  erro end
 gg.clearResults()
-load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/TOS_Auto_raw(outdated).lua").content)()
-return
-if loaderver~=3.0 then erronum=2 goto  erro end
 
 ::erro::
 if erronum==1 then print('※請更新GG到最新版本※') end
 if erronum==1 then print('※此加載器已過期，請更新至TOS_Auto_Loader_v3.0※') end
 
-goto LENG
+goto loaderver
+
+::loaderver::
+fun=2
+load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/TOS_Auto_Loader_v3.0.lua").content)()
+if loaderver ~=3.0 then erromum=2 goto  eroo end
+if loaderver ==3.0 then goto LENG end
 
 ::LENG::
 local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇語言※  ※Select Language※')
