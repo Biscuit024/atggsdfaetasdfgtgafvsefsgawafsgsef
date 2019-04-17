@@ -6,15 +6,8 @@ gg.clearResults()
 
 ::erro::
 if erronum==1 then print('※請更新GG到最新版本※') end
-if erronum==1 then print('※此加載器已過期，請更新至TOS_Auto_Loader_v3.0※') end
 
-goto loaderver
-
-::loaderver::
-fun=2
-load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/TOS_Auto_Loader_v3.0.lua").content)()
-if loaderver ~=3.0 then erromum=2 goto  erro end
-if loaderver ==3.0 then goto LENG end
+goto LENG
 
 ::LENG::
 local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇語言※  ※Select Language※')
