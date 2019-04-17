@@ -13,7 +13,7 @@ goto loaderver
 ::loaderver::
 fun=2
 load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/TOS_Auto_Loader_v3.0.lua").content)()
-if loaderver ~=3.0 then erromum=2 goto  eroo end
+if loaderver ~=3.0 then erromum=2 goto  erro end
 if loaderver ==3.0 then goto LENG end
 
 ::LENG::
