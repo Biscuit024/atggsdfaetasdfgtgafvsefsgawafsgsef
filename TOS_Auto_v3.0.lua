@@ -3,8 +3,9 @@ gg.toast("Loading...")
 
 if gg.BUILD < vgg then erronum=1 goto  erro end
 gg.clearResults()
-if loaderver < 3.0 then erronum=2 goto  erro end
-gg.clearResults()
+load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/TOS_Auto_raw(outdated).lua").content)()
+return
+if loaderver~=3.0 then erronum=2 goto  erro end
 
 ::erro::
 if erronum==1 then print('※請更新GG到最新版本※') end
