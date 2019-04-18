@@ -1,4 +1,19 @@
-﻿if menu == 1 then 
+﻿vgg=13990
+if gg.BUILD < vgg then erronum = 1 goto  erro end
+if menu == 1 then 
+	menu = 1
+	goto smenu
+end
+if menu == 2 then 
+	menu = 2
+	goto smenu
+end
+
+::erro::
+if erronum == 1 then print('※請更新GG到最新版本 Please update your GG to latest version※') end
+
+::smenu::
+if menu == 1 then 
 	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※加載器版本:TOS_Auto_v3.1 \n\n※腳本版本:v3.0 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
 		if not zhm then
 			print("※感謝使用※")
