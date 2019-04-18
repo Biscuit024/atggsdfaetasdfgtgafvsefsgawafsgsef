@@ -1,17 +1,14 @@
-﻿vgg=13990
-if gg.BUILD < vgg then erronum = 1 goto  erro end
-loadermenu = 1
-if loadermenu == 1 then
+﻿goto loader
+
+::loader::
+if loaderleng == 1 then
 	menu = 1
 	goto smenu
 end
-if loadermenu == 2 then
+if loaderleng == 2 then
 	menu = 2
 	goto smenu
 end
-
-::erro::
-if erronum == 1 then print('※請更新GG到最新版本 Please update your GG to latest version※') end
 
 ::LENG::
 local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇語言※  ※Select Language※')
@@ -20,12 +17,12 @@ local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇�
 	    return
 	end
 	if menu == 1 then
-		menu = 1
-		goto smenu
+		leng = 1
+		goto SETTING
 	end
 	if menu == 2 then 
-		menu = 2
-		goto smenu
+		leng = 2
+		goto SETTING
 	end
 
 ::smenu::
@@ -72,7 +69,6 @@ if menu == 2 then
 			leng = 2
 			goto SETTING
 		end
-		
 end
 
 ::SETTING::
@@ -80,7 +76,7 @@ if leng == 1 then
 	local menu = gg.choice({'※使用說明※','※變更語言※','※檢查更新※'},nil,'※設定※')
 		if not menu then
 			leng = 1
-			goto FINISH
+			goto smenu
 		end
 		if menu == 1 then 
 			leng = 1
@@ -90,15 +86,14 @@ if leng == 1 then
 			goto LENG
 		end
 		if menu == 3 then 
-			leng = 1
 			load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/checkupdate.lua").content)()
-			end
+		end
 end
 if leng == 2 then
 	local menu = gg.choice({'※Instructions for use※','※Change Language※','※Chack Update※'},nil,'※Setting※')
 		if not menu then
 			leng = 2
-			goto FINISH
+			goto smenu
 		end
 		if menu == 1 then 
 			leng = 2
@@ -108,7 +103,6 @@ if leng == 2 then
 			goto LENG
 		end
 		if menu == 3 then 
-			leng = 2
 			load(gg.makeRequest("https://raw.githubusercontent.com/Biscuit024/atggsdfaetasdfgtgafvsefsgawafsgsef/master/checkupdate.lua").content)()
 		end
 end
