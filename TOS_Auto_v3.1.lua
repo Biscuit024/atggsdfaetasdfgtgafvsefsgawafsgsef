@@ -1,13 +1,6 @@
 ﻿vgg=13990
 if gg.BUILD < vgg then erronum = 1 goto  erro end
-if menu == 1 then 
-	menu = 1
-	goto smenu
-end
-if menu == 2 then 
-	menu = 2
-	goto smenu
-end
+goto smenu
 
 ::erro::
 if erronum == 1 then print('※請更新GG到最新版本 Please update your GG to latest version※') end
