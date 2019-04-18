@@ -1,4 +1,22 @@
-﻿if menu == 1 then 
+﻿goto smenu
+
+::LENG::
+local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇語言※  ※Select Language※')
+    if not menu then
+	    print("※感謝使用※  ※Thank for using※")
+	    return
+	end
+	if menu == 1 then
+		leng = 1
+		goto SETTING
+	end
+	if menu == 2 then 
+		leng = 2
+		goto SETTING
+	end
+
+::smenu::
+if menu == 1 then 
 	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※加載器版本:TOS_Auto_v3.1 \n\n※腳本版本:v3.0 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
 		if not zhm then
 			print("※感謝使用※")
