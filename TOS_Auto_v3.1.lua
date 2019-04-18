@@ -1,16 +1,4 @@
-﻿goto loader
-
-::loader::
-if loaderleng == 1 then
-	menu = 1
-	leng = 1
-	goto smenu
-end
-if loaderleng == 2 then 
-	menu = 2
-	leng = 2
-	goto smenu
-end
+﻿goto LENG
 
 ::LENG::
 local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇語言※  ※Select Language※')
@@ -19,12 +7,12 @@ local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇�
 	    return
 	end
 	if menu == 1 then
-		leng = 1
-		goto SETTING
+		menu = 1
+		goto smenu
 	end
-	if menu == 2 then 
-		leng = 2
-		goto SETTING
+	if menu == 1 then 
+		menu = 1
+		goto smenu
 	end
 
 ::smenu::
@@ -117,6 +105,18 @@ end
 if leng == 2 then
 	gg.alert('※This script is free, do not sell or modify this script privately※ \n\n※This script is from APK.TW, if you want to share it out please mention the source and script writer※ \n\n※It is recommended to use this script to modify the compliance indicator to help reduce the risk of being banned※ \n\n※Using scripts is risky and is not responsible for being banned※')
 	goto SETTING
+end
+
+::loader::
+if loaderleng == 1 then
+	menu = 1
+	leng = 1
+	goto smenu
+end
+if loaderleng == 2 then 
+	menu = 2
+	leng = 2
+	goto smenu
 end
 
 ::STARE::
