@@ -93,18 +93,6 @@ if leng == 2 then
 	goto SETTING
 end
 
-::loader::
-if loaderleng == 1 then
-	menu = 1
-	leng = 1
-	goto smenu
-end
-if loaderleng == 2 then 
-	menu = 2
-	leng = 2
-	goto smenu
-end
-
 ::STARE::
 gg.clearResults()
 x1='0617FE012A520203r'
