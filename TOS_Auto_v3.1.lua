@@ -1,6 +1,6 @@
 ﻿vgg=13990
 if gg.BUILD < vgg then erronum = 1 goto  erro end
-loadermenu == 1
+loadermenu = 1
 if loadermenu == 1 then
 	menu == 1
 	goto smenu
