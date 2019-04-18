@@ -2,11 +2,11 @@
 if gg.BUILD < vgg then erronum = 1 goto  erro end
 loadermenu = 1
 if loadermenu == 1 then
-	menu == 1
+	menu = 1
 	goto smenu
 end
 if loadermenu == 2 then
-	menu == 2
+	menu = 2
 	goto smenu
 end
 
