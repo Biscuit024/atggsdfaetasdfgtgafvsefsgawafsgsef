@@ -1,4 +1,31 @@
-﻿goto LENG
+﻿if loadermenu == 1 then 
+	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※加載器版本:TOS_Auto_v3.1 \n\n※腳本版本:v3.0 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
+		if zhm == 1 then
+			leng = 1
+			goto STARE
+		end
+		if zhm == 2 then 
+			return
+		end
+		if zhm == 3 then 
+			leng = 1
+			goto SETTING
+		end
+end
+if loadermenu == 2 then 
+	enm = gg.alert('※※※TOS Script※※※ \n\n※Script writer:Biscuit※ \n\n※Loader version:TOS_Auto_v3.1 \n\n※Script version:v3.0 \n\n※APK&PLAY are supported※ \n\n※Traditional Chinese version and english version are supported※ \n\n※For geting the future update imformation, please go to apk.tw※ \n\n※This script are supported for TOS in future update, but please contact me if the script was disabled※ \n\n※LINE ID:harukibb※','※Next※','※Leave※','※Setting※')
+		if enm == 1 then
+			leng = 2
+			goto STARE
+		end
+		if enm == 2 then 
+			return
+		end
+		if enm == 3 then 
+			leng = 2
+			goto SETTING
+		end
+end
 
 ::LENG::
 local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇語言※  ※Select Language※')
@@ -15,43 +42,9 @@ local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇�
 		goto smenu
 	end
 
-::smenu::
-if menu == 1 then 
-	zhm = gg.alert('※※※神魔之塔外掛腳本※※※ \n\n※作者:餅乾※ \n\n※加載器版本:TOS_Auto_v3.1 \n\n※腳本版本:v3.0 \n\n※APK和PLAY版本通用※ \n\n※繁體中文版和英文版通用※ \n\n※有關腳本未來更新請到APK.TW神魔之塔分區※ \n\n※此腳本理論上支援神魔未來更新，如失效請與作者聯絡※ \n\n※LINE ID:harukibb※','※進入腳本※','※離開腳本※','※設定※')
-		if zhm == 1 then
-			leng = 1
-			goto STARE
-		end
-		if zhm == 2 then 
-			return
-		end
-		if zhm == 3 then 
-			leng = 1
-			goto SETTING
-		end
-end
-if menu == 2 then 
-	enm = gg.alert('※※※TOS Script※※※ \n\n※Script writer:Biscuit※ \n\n※Loader version:TOS_Auto_v3.1 \n\n※Script version:v3.0 \n\n※APK&PLAY are supported※ \n\n※Traditional Chinese version and english version are supported※ \n\n※For geting the future update imformation, please go to apk.tw※ \n\n※This script are supported for TOS in future update, but please contact me if the script was disabled※ \n\n※LINE ID:harukibb※','※Next※','※Leave※','※Setting※')
-		if enm == 1 then
-			leng = 2
-			goto STARE
-		end
-		if enm == 2 then 
-			return
-		end
-		if enm == 3 then 
-			leng = 2
-			goto SETTING
-		end
-end
-
 ::SETTING::
 if leng == 1 then 
 	local menu = gg.choice({'※使用說明※','※變更語言※','※檢查更新※'},nil,'※設定※')
-		if not menu then
-			leng = 1
-			goto smenu
-		end
 		if menu == 1 then 
 			leng = 1
 			goto NOTICE
@@ -65,10 +58,6 @@ if leng == 1 then
 end
 if leng == 2 then
 	local menu = gg.choice({'※Instructions for use※','※Change Language※','※Chack Update※'},nil,'※Setting※')
-		if not menu then
-			leng = 2
-			goto smenu
-		end
 		if menu == 1 then 
 			leng = 2
 			goto NOTICE
