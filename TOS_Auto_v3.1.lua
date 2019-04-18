@@ -1,10 +1,31 @@
 ﻿vgg=13990
 if gg.BUILD < vgg then erronum = 1 goto  erro end
-menu = 1
-goto smenu
+if loadermenu == 1 then
+	menu == 1
+	goto smenu
+end
+if loadermenu == 2 then
+	menu == 2
+	goto smenu
+end
 
 ::erro::
 if erronum == 1 then print('※請更新GG到最新版本 Please update your GG to latest version※') end
+
+::LENG::
+local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇語言※  ※Select Language※')
+    if not menu then
+	    print("※感謝使用※  ※Thank for using※")
+	    return
+	end
+	if menu == 1 then
+		menu = 1
+		goto smenu
+	end
+	if menu == 2 then 
+		menu = 2
+		goto smenu
+	end
 
 ::smenu::
 if menu == 1 then 
@@ -52,21 +73,6 @@ if menu == 2 then
 		end
 		
 end
-
-::LENG::
-local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇語言※  ※Select Language※')
-    if not menu then
-	    print("※感謝使用※  ※Thank for using※")
-	    return
-	end
-	if menu == 1 then
-		leng = 1
-		goto SETTING
-	end
-	if menu == 2 then 
-		leng = 2
-		goto SETTING
-	end
 
 ::SETTING::
 if leng == 1 then 
