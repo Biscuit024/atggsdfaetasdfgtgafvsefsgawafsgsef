@@ -1,5 +1,6 @@
 ﻿vgg=13990
 if gg.BUILD < vgg then erronum = 1 goto  erro end
+menu = 1
 goto smenu
 
 ::erro::
