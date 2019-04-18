@@ -1,14 +1,4 @@
-﻿goto loaderleng
-
-::loaderleng::
-if loaderleng == 1 then
-	menu = 1
-	goto smenu
-end
-if loaderleng == 2 then
-	menu = 2
-	goto smenu
-end
+﻿goto LENG
 
 ::LENG::
 local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇語言※  ※Select Language※')
