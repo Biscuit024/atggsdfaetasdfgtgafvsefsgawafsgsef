@@ -10,8 +10,8 @@ local menu = gg.choice({'※繁體中文※','※English※'},nil,'※請選擇�
 		menu = 1
 		goto smenu
 	end
-	if menu == 1 then 
-		menu = 1
+	if menu == 2 then 
+		menu = 2
 		goto smenu
 	end
 
@@ -48,6 +48,10 @@ end
 ::SETTING::
 if leng == 1 then 
 	local menu = gg.choice({'※使用說明※','※變更語言※','※檢查更新※'},nil,'※設定※')
+		if not menu then
+			menu = 1
+			goto smenu
+		end
 		if menu == 1 then 
 			leng = 1
 			goto NOTICE
@@ -61,6 +65,10 @@ if leng == 1 then
 end
 if leng == 2 then
 	local menu = gg.choice({'※Instructions for use※','※Change Language※','※Chack Update※'},nil,'※Setting※')
+		if not menu then
+			menu = 2
+			goto smenu
+		end
 		if menu == 1 then 
 			leng = 2
 			goto NOTICE
